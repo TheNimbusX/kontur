@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Контур</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div id="scrollBox" class="scroll-box"></div>
+    </header>
+
+    <main>
+      <div class="control-panel fade-in">
+        <div class="color-picker" id="colorPicker">
+          <canvas id="colorCanvas" width="240" height="240"></canvas>
+          <div id="colorSlider" class="color-slider"></div>
+        </div>
+
+        <div class="status-label" id="colorLabel">RGB: (255, 255, 255)</div>
+
+        <div class="slider-container">
+          <div class="slider-label">
+            <span>Яркость</span>
+            <span id="sliderValue">50%</span>
+          </div>
+          <input type="range" min="0" max="100" value="50" class="slider" id="slider" />
+        </div>
+
+        <div class="actions">
+          <button class="primary-btn" id="addButton">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M12 5v14M5 12h14" />
+            </svg>
+            Добавить
+          </button>
+          <button class="primary-btn" id="sendButton">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+            </svg>
+            Отправить
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
