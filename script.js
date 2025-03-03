@@ -106,7 +106,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     button.addEventListener("mouseout", function () {
       this.textContent = this.dataset.originalText;
-      //   this.style.backgroundColor = "";
     });
 
     elements.scrollBox.appendChild(button);

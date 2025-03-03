@@ -113,6 +113,7 @@ button {
   transform: translate(-50%, -50%);
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
 }
+
 .slider-container {
   margin: 2rem 0;
 }
