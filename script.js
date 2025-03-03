@@ -96,17 +96,17 @@ document.addEventListener("DOMContentLoaded", function () {
     button.dataset.color = currentColor;
     button.dataset.brightness = brightness;
     button.dataset.rgb = rgbValues.join(",");
+    button.style.backgroundColor = `rgba(${button.dataset.rgb}, ${
+      button.dataset.brightness / 100
+    })`;
 
     button.addEventListener("mouseover", function () {
       this.textContent = `${this.dataset.color} | Яркость: ${this.dataset.brightness}%`;
-      this.style.backgroundColor = `rgba(${this.dataset.rgb}, ${
-        this.dataset.brightness / 100
-      })`;
     });
 
     button.addEventListener("mouseout", function () {
       this.textContent = this.dataset.originalText;
-      this.style.backgroundColor = "";
+      //   this.style.backgroundColor = "";
     });
 
     elements.scrollBox.appendChild(button);
