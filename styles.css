@@ -20,7 +20,6 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow-y: hidden;
 }
 
 header {
@@ -93,7 +92,6 @@ button {
   border-radius: 16px;
   padding: 10px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
-  margin-top: 2rem;
 }
 
 .color-picker {
