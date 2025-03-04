@@ -54,13 +54,32 @@ document.addEventListener("DOMContentLoaded", function () {
   function initColorPicker() {
     let isDragging = false;
 
+    function onMove(event) {
+      event.preventDefault();
+      const touch = event.touches ? event.touches[0] : event;
+      updateColor(touch);
+    }
+
+    function onEnd() {
+      isDragging = false;
+      document.removeEventListener("mousemove", onMove);
+      document.removeEventListener("mouseup", onEnd);
+      document.removeEventListener("touchmove", onMove);
+      document.removeEventListener("touchend", onEnd);
+    }
+
     elements.canvas.addEventListener("mousedown", (event) => {
       isDragging = true;
       updateColor(event);
+      document.addEventListener("mousemove", onMove);
+      document.addEventListener("mouseup", onEnd);
     });
 
-    elements.canvas.addEventListener("mousemove", (event) => {
-      if (isDragging) updateColor(event);
+    elements.canvas.addEventListener("touchstart", (event) => {
+      isDragging = true;
+      updateColor(event.touches[0]);
+      document.addEventListener("touchmove", onMove, { passive: false });
+      document.addEventListener("touchend", onEnd);
     });
 
     elements.canvas.addEventListener("mouseup", () => (isDragging = false));
@@ -83,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Добавление кнопки "Помещение"
   function addRoom() {
     if (roomCounter > 16) {
-      alert("Достигнуто максимальное количество помещений (16).");
+      alert("Достигнуто максимальное количество помещений (16). ");
       return;
     }
 
